@@ -1167,3 +1167,131 @@ h4 { font-size: 1rem; }
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ── PROVENANCE BUTTON (trust bar) ──────────────────────────── */
+.trust-bar__provenance-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink-mid);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  padding: 0;
+  transition: color var(--transition);
+  letter-spacing: 0.03em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: transparent;
+}
+.trust-bar__provenance-btn:hover {
+  color: var(--rust);
+  text-decoration-color: var(--rust);
+}
+.trust-bar__provenance-btn svg { color: var(--rust); }
+
+/* ── PROVENANCE BOX (home page dropdown) ─────────────────────── */
+.provenance-box {
+  background: var(--forest);
+  color: var(--cream);
+  padding-block: 1.75rem;
+  border-bottom: 1px solid var(--forest-dark);
+}
+.provenance-box__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  position: relative;
+  max-width: 720px;
+}
+.provenance-box__icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-light);
+  margin-top: 0.15rem;
+}
+.provenance-box__text h4 {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+.provenance-box__text p {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: rgba(250,246,240,0.75);
+}
+.provenance-box__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.85rem;
+  color: rgba(250,246,240,0.5);
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  transition: color var(--transition);
+  padding: 0.25rem;
+}
+.provenance-box__close:hover { color: var(--cream); }
+
+/* ── PROVENANCE BUTTON (detail page) ────────────────────────── */
+.detail-provenance-wrap { margin-bottom: 2rem; }
+
+.detail-provenance-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--forest);
+  background: rgba(45,74,62,0.06);
+  border: 1.5px solid rgba(45,74,62,0.2);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  letter-spacing: 0.03em;
+  transition: all var(--transition);
+  text-align: left;
+}
+.detail-provenance-btn:hover {
+  background: rgba(45,74,62,0.1);
+  border-color: var(--forest);
+}
+.detail-provenance-btn__arrow {
+  margin-left: auto;
+  font-size: 0.7rem;
+  transition: transform var(--transition);
+}
+
+.detail-provenance {
+  border-left: 3px solid var(--forest);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1rem 1.25rem;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--ink-mid);
+  margin-top: 0.5rem;
+  background: rgba(45,74,62,0.04);
+  animation: fadeUp 0.2s ease;
+}
+.detail-provenance strong {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin-bottom: 0.4rem;
+}

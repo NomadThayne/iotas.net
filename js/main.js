@@ -249,7 +249,7 @@ function renderHome(container) {
       <!-- HERO -->
       <section class="hero">
         <div class="hero__content">
-          <div class="hero__eyebrow">Authenticated Originals</div>
+          <div class="hero__eyebrow">Personally Sourced Items</div>
           <h1>Where Disney <em>History</em> Lives On</h1>
           <p class="hero__desc">Production cels, vintage toys, original posters, and park memorabilia — sourced, authenticated, and offered to collectors who know the difference.</p>
           <div class="hero__ctas">
@@ -272,12 +272,14 @@ function renderHome(container) {
       <div class="trust-bar">
         <div class="container trust-bar__inner">
           <div class="trust-bar__item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Authenticated Originals
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Personally Sourced
           </div>
           <div class="trust-bar__item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            COA On Every Item
+            <button class="trust-bar__provenance-btn" onclick="toggleProvenanceBox()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Our Provenance
+            </button>
           </div>
           <div class="trust-bar__item">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
@@ -286,6 +288,22 @@ function renderHome(container) {
           <div class="trust-bar__item">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Ojai, California
+          </div>
+        </div>
+      </div>
+
+      <!-- PROVENANCE BOX -->
+      <div class="provenance-box" id="provenanceBox" style="display:none">
+        <div class="container">
+          <div class="provenance-box__inner">
+            <button class="provenance-box__close" onclick="toggleProvenanceBox()" aria-label="Close">&#x2715;</button>
+            <div class="provenance-box__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div class="provenance-box__text">
+              <h4>How We Source</h4>
+              <p>My mother worked at the Walt Disney Studio from the 1960s through the 1980s. Over those two decades, she was gifted or acquired many of the items you see here &mdash; and in some cases, she had a hand in creating them. These aren&apos;t pieces hunted down at auction or sourced from strangers. They came home with her. They sat on shelves, in drawers, in closets. They are, in the truest sense, from the inside. When you buy something from iotas.net, you&apos;re not just buying a collectible &mdash; you&apos;re buying a piece of the studio itself, passed down through a family that was there.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -502,11 +520,22 @@ function renderProductDetail(container, id) {
               ${p.dimensions ? `<div class="detail-specs__row"><span class="detail-specs__label">Dimensions</span><span class="detail-specs__value">${p.dimensions}</span></div>` : ''}
             </div>
 
-            ${p.provenance ? `
-              <div class="detail-provenance">
-                <strong>Provenance & Authentication</strong>
+            <div class="detail-provenance-wrap">
+              <button class="detail-provenance-btn" onclick="toggleDetailProvenance(this)" aria-expanded="false">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Provenance &amp; Sourcing
+                <span class="detail-provenance-btn__arrow">&#x25BE;</span>
+              </button>
+              ${p.provenance ? `
+              <div class="detail-provenance" style="display:none">
+                <strong>How this piece was sourced</strong>
                 ${p.provenance}
-              </div>` : ''}
+              </div>` : `
+              <div class="detail-provenance" style="display:none">
+                <strong>How this piece was sourced</strong>
+                This piece comes from my mother&apos;s personal collection, assembled during her two decades working at the Walt Disney Studio from the 1960s through the 1980s. Items were gifted to her, purchased by her, or in some cases came from projects she was part of creating. For specific history on this piece, reach out at <a href="mailto:shopper@iotas.net">shopper@iotas.net</a>.
+              </div>`}
+            </div>
 
             <div class="detail-actions">
               ${actionBtn}
@@ -661,6 +690,25 @@ function initMenuToggle() {
 function closeDrawer() {
   const drawer = document.getElementById('navDrawer');
   if (drawer) drawer.classList.remove('open');
+}
+
+// ── PROVENANCE TOGGLES ────────────────────────────────────────
+function toggleProvenanceBox() {
+  const box = document.getElementById('provenanceBox');
+  if (!box) return;
+  const isOpen = box.style.display !== 'none';
+  box.style.display = isOpen ? 'none' : 'block';
+  box.style.animation = isOpen ? '' : 'fadeUp 0.25s ease';
+}
+
+function toggleDetailProvenance(btn) {
+  const wrap = btn.closest('.detail-provenance-wrap');
+  const box  = wrap.querySelector('.detail-provenance');
+  const arrow = btn.querySelector('.detail-provenance-btn__arrow');
+  const isOpen = box.style.display !== 'none';
+  box.style.display = isOpen ? 'none' : 'block';
+  arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
+  btn.setAttribute('aria-expanded', String(!isOpen));
 }
 
 // ── BOOT ──────────────────────────────────────────────────────
