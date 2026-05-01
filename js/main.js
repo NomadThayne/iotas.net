@@ -449,7 +449,7 @@ function renderProductDetail(container, id) {
     : `<div class="detail-price">${formatPrice(p.price)}</div>`;
 
   const actionBtn = p.inquire
-    ? `<a href="mailto:hello@iotas.net?subject=Inquiry: ${encodeURIComponent(p.name)}" class="btn btn-forest btn-full btn-lg">✉ Inquire About This Piece</a>`
+    ? `<a href="mailto:shopper@iotas.net?subject=Inquiry: ${encodeURIComponent(p.name)}" class="btn btn-forest btn-full btn-lg">✉ Inquire About This Piece</a>`
     : inCart
     ? `<button class="btn btn-outline btn-full btn-lg" onclick="location.hash='#/cart'">View in Cart →</button>`
     : `<button class="btn btn-primary btn-full btn-lg" onclick="addToCart('${p.id}')">Add to Cart</button>`;
@@ -512,7 +512,7 @@ function renderProductDetail(container, id) {
               ${actionBtn}
               <a href="#/collections" class="btn btn-outline btn-full">← Back to Collections</a>
             </div>
-            <p class="detail-note">Questions? <a href="mailto:hello@iotas.net" style="color:var(--rust)">hello@iotas.net</a></p>
+            <p class="detail-note">Questions? <a href="mailto:shopper@iotas.net" style="color:var(--rust)">shopper@iotas.net</a></p>
           </div>
         </div>
 
@@ -597,7 +597,7 @@ function renderCart(container) {
         <span>${formatPrice(subtotal)}${inquireItems.length ? ' +' : ''}</span>
       </div>
       ${purchaseItems.length > 0 ? `<button class="btn btn-primary btn-full btn-lg" style="margin-top:1.25rem">Proceed to Checkout</button>` : ''}
-      ${inquireItems.length > 0 ? `<a href="mailto:hello@iotas.net?subject=Inquiry from Cart&body=${encodeURIComponent(inquireItems.map(p=>p.name).join('\n'))}" class="btn btn-forest btn-full" style="margin-top:0.75rem">✉ Send Inquiry Email</a>` : ''}
+      ${inquireItems.length > 0 ? `<a href="mailto:shopper@iotas.net?subject=Inquiry from Cart&body=${encodeURIComponent(inquireItems.map(p=>p.name).join('\n'))}" class="btn btn-forest btn-full" style="margin-top:0.75rem">✉ Send Inquiry Email</a>` : ''}
       <p class="cart-summary__note">Shipping and insurance calculated at checkout. All items fully insured in transit.</p>
     </div>`;
 

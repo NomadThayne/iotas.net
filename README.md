@@ -65,7 +65,7 @@ To add a new type, add it to the `productTypes` array at the bottom of `products
 ## Cart Behavior
 
 - Regular items (with a price) go into the cart and have a checkout button
-- **Inquire items** (price: null, inquire: true) go into a separate "Inquiry" section in the cart, and trigger an email to `hello@iotas.net`
+- **Inquire items** (price: null, inquire: true) go into a separate "Inquiry" section in the cart, and trigger an email to `shopper@iotas.net`
 - Cart persists in the browser via localStorage
 
 ---
@@ -97,7 +97,7 @@ No build step, no Node, no framework.
 
 ## Contact Email
 
-Change `hello@iotas.net` in `js/main.js` and `index.html` to your real address. Search for `hello@iotas.net` and replace all instances.
+Change `shopper@iotas.net` in `js/main.js` and `index.html` to your real address. Search for `shopper@iotas.net` and replace all instances.
 
 ---
 
